@@ -1,0 +1,99 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id           String        @id @default(cuid())
+  email        String        @unique
+  password     String
+  name         String
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  accounts     Account[]
+  categories   Category[]
+  transactions Transaction[]
+  budgets      Budget[]
+}
+
+model Account {
+  id          String        @id @default(cuid())
+  name        String
+  type        String
+  balance     Float         @default(0)
+  icon        String        @default("💳")
+  color       String        @default("#10B981")
+  isDefault   Boolean       @default(false)
+  order       Int           @default(0)
+  userId      String
+  user        User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+  transactions Transaction[] @relation("FromAccount")
+  transfersTo  Transaction[] @relation("ToAccount")
+
+  @@index([userId])
+}
+
+model Category {
+  id           String        @id @default(cuid())
+  name         String
+  type         String
+  icon         String        @default("📦")
+  color        String        @default("#6B7280")
+  parentId     String?
+  order        Int           @default(0)
+  userId       String
+  user         User          @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+  transactions Transaction[]
+  budgets      Budget[]
+
+  @@index([userId])
+}
+
+model Transaction {
+  id              String   @id @default(cuid())
+  type            String
+  amount          Float
+  categoryId      String?
+  category        Category? @relation(fields: [categoryId], references: [id])
+  accountId       String
+  account         Account  @relation("FromAccount", fields: [accountId], references: [id])
+  targetAccountId String?
+  targetAccount   Account? @relation("ToAccount", fields: [targetAccountId], references: [id])
+  date            DateTime @default(now())
+  note            String?
+  tags            String?
+  attachments     String?
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  @@index([userId])
+  @@index([date])
+  @@index([type])
+}
+
+model Budget {
+  id             String   @id @default(cuid())
+  categoryId     String?
+  category       Category? @relation(fields: [categoryId], references: [id])
+  amount         Float
+  period         String
+  startDate      DateTime @default(now())
+  alertThreshold Float    @default(0.8)
+  userId         String
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  @@index([userId])
+}

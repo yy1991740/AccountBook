@@ -1,0 +1,228 @@
+.settings-page {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+}
+
+.page-header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.user-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.user-avatar {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 600;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.user-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: white;
+}
+
+.user-email {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+/* 预算概览 */
+.budget-overview-card {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.budget-overview-card:active {
+    transform: scale(0.98);
+}
+
+.budget-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.budget-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.budget-bar-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.budget-bar {
+    height: 10px;
+    background: var(--bg-tertiary);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.budget-fill {
+    height: 100%;
+    border-radius: 5px;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.budget-text {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.over-text {
+    color: var(--expense);
+    font-weight: 700;
+}
+
+/* 主题设置 */
+.theme-card {
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.theme-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.theme-options {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+.theme-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 0.5rem;
+    border-radius: var(--radius);
+    background: var(--bg-secondary);
+    transition: all 0.2s ease;
+    color: var(--text-muted);
+}
+
+.theme-option:hover {
+    background: var(--bg-tertiary);
+}
+
+.theme-option.active {
+    background: rgba(16, 185, 129, 0.1);
+    border: 2px solid var(--primary);
+    color: var(--primary);
+}
+
+.theme-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* 菜单 */
+.menu-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 2rem;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    width: 100%;
+    transition: transform 0.2s ease;
+}
+
+.menu-item:active {
+    transform: scale(0.98);
+}
+
+.menu-left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.menu-icon-box {
+    width: 36px;
+    height: 36px;
+    background: var(--bg-tertiary);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+}
+
+.menu-label {
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.menu-arrow {
+    color: var(--text-muted);
+}
+
+.logout-btn {
+    width: 100%;
+    padding: 1rem;
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    color: var(--expense);
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+}
+
+.logout-btn:active {
+    transform: scale(0.98);
+    background: var(--expense-light);
+}
+
+.version {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    margin-top: 2rem;
+}

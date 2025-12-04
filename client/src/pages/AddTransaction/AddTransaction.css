@@ -1,0 +1,223 @@
+.add-page {
+    min-height: 100vh;
+    background: var(--bg-primary);
+}
+
+.add-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.add-header h1 {
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.back-btn,
+.save-btn {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+.save-btn {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.save-btn:disabled {
+    opacity: 0.5;
+}
+
+.type-tabs {
+    display: flex;
+    padding: 0.75rem 1rem;
+    gap: 0.5rem;
+}
+
+.type-tab {
+    flex: 1;
+    padding: 0.75rem;
+    border-radius: var(--radius);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.type-tab.active {
+    color: white;
+}
+
+.type-tab.active.expense {
+    background: var(--expense);
+}
+
+.type-tab.active.income {
+    background: var(--income);
+}
+
+.type-tab.active.transfer {
+    background: var(--transfer);
+}
+
+.error-msg {
+    margin: 0 1rem;
+    padding: 0.75rem;
+    background: #FEE2E2;
+    color: #DC2626;
+    border-radius: var(--radius);
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+.amount-input {
+    display: flex;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    gap: 0.5rem;
+}
+
+.amount-input .currency {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+}
+
+.amount-input input {
+    flex: 1;
+    border: none;
+    background: none;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    outline: none;
+}
+
+.amount-input input::placeholder {
+    color: var(--text-muted);
+}
+
+.category-section,
+.transfer-section {
+    padding: 1rem;
+}
+
+.category-section h3,
+.transfer-section h3 {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.75rem;
+}
+
+.category-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.375rem;
+    padding: 0.75rem 0.5rem;
+    border-radius: var(--radius);
+    transition: all 0.2s ease;
+}
+
+.category-item:hover {
+    background: var(--bg-secondary);
+}
+
+.category-item.selected {
+    background: rgba(16, 185, 129, 0.1);
+}
+
+.category-item.selected .category-icon {
+    transform: scale(1.1);
+}
+
+.category-icon {
+    font-size: 1.5rem;
+    transition: transform 0.2s ease;
+}
+
+.category-name {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.transfer-accounts {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-lg);
+}
+
+.transfer-from,
+.transfer-to {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.transfer-from label,
+.transfer-to label {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+}
+
+.transfer-from select,
+.transfer-to select {
+    padding: 0.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+
+.transfer-arrow {
+    font-size: 1.25rem;
+    color: var(--text-muted);
+}
+
+.form-section {
+    padding: 1rem;
+    border-top: 1px solid var(--border);
+    margin-top: 1rem;
+}
+
+.form-row {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.form-row:last-child {
+    border-bottom: none;
+}
+
+.form-row label {
+    width: 60px;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.form-row input,
+.form-row select {
+    flex: 1;
+    border: none;
+    background: none;
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    outline: none;
+    text-align: right;
+}
